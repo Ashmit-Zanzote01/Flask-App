@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static/CSS', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
     <title>Mental Health Checking System</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <img src="{{ url_for('static/images', filename='Designer_2.png') }}" alt="Logo" class="logo">
+        <img src="{{ url_for('static', filename='images/Designer_2.png') }}" alt="Logo" class="logo">
         <h1>Mental Health Checking System</h1> 
         <form method="POST" id="quiz-form">
             {% for question in quiz_questions %}
@@ -39,11 +39,10 @@
 
         <div id="result-container" style="display: none;">
             <p id="result-text"></p>
-            <img id="emotion-graph" src="" alt="Emotion Analysis Graph" style="max-width: 100%; height: auto;">
             <canvas id="emotion-chart" width="600" height="400"></canvas>
         </div>
     </div>
-    <script src="{{ url_for('static/js', filename='quiz.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
 </body>
 
 </html>
