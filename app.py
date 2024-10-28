@@ -140,15 +140,12 @@ def submit_quiz():
 
     final_assessment = combine_assessments(predicted_emotion, mental_state)
 
-    generate_bar_graph(emotion_labels, emotion_values)
-
     return jsonify({
         'message': final_assessment,
         'predictedEmotion': predicted_emotion,
         'mentalState': mental_state,
         'emotionLabels': emotion_labels,
         'emotionValues': emotion_values,
-        'graphPath': url_for('static', filename='emotion_graph.png')
     })
 
 def assess_mental_state(responses):
@@ -180,14 +177,6 @@ def combine_assessments(predicted_emotion, mental_state):
     else:
         return f"Neutral: Your mental state is stable, and you are feeling {predicted_emotion}."
 
-def generate_bar_graph(emotion_labels, emotion_values):
-    plt.figure(figsize=(10, 5))
-    plt.bar(emotion_labels, emotion_values)
-    plt.xlabel('Emotions')
-    plt.ylabel('Probabilities')
-    plt.title('Emotion Prediction Probabilities')
-    plt.savefig(os.path.join(TEMP_IMAGE_DIR, 'emotion_graph.png'))
-    plt.close()
 
 if __name__ == "__main__":
     load_model()  # Load model at startup
