@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "builda": [
+    "builds": [
         { "src": "app.py", "use": "@vercel/python"}
     ],
     "routes": [
